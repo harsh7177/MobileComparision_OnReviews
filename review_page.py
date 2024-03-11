@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import time
 from streamlit_lottie import st_lottie
 import matplotlib
-matplotlib.use('Qt5Agg')
+
 import seaborn as sns
 import pandas as pd
 
