@@ -28,11 +28,12 @@ def show_keyword_page(pro1,pro2,keyword):
         # Plotting
         plt.figure(figsize=(10, 6))
         plt.style.use('fivethirtyeight')
-        sns.barplot(x='Rating', y='Count', hue='Product', data=melted_df)
+        plt.bar(x='Rating', height='Count', data=melted_df, color='skyblue')
         plt.title('Ratings for {}'.format(keyword.upper()))
         plt.ylabel('Count')
         plt.xlabel('Rating')
         plt.xticks(rotation=0)
+        plt.show()
 
         # Display plot in Streamlit
         st.pyplot()
