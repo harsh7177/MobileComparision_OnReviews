@@ -2,10 +2,7 @@ from scrapping import scrap,review_scrap,anime
 import streamlit as st
 import matplotlib.pyplot as plt
 import time
-from streamlit_lottie import st_lottie
 import matplotlib
-
-import seaborn as sns
 import pandas as pd
 
 
