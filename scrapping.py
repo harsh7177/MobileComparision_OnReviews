@@ -24,7 +24,7 @@ def scrap(product):
 }
 
     scrap=requests.get(url=url,headers=headers)
-    data=bs(scrap.text)
+    data=bs(scrap.text,'html.parser')
     [Item_name.append(i.text) for i in data.find_all('div',class_='_4rR01T')[0:2]]
     try:
         [Item_Price.append(float(i.text.replace("₹",'').replace(',',''))) for i in data.find_all('div',class_='_25b18c')[0:2]]
@@ -56,7 +56,7 @@ def review_scrap(href):
     rev_url=href
     headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win 64 ; x64) Apple WeKit /537.36(KHTML , like Gecko) Chrome/80.0.3987.162 Safari/537.36'}
     rev_scrap=requests.get(url=rev_url,headers=headers)
-    rev_data=bs(rev_scrap.text)
+    rev_data=bs(rev_scrap.text,'html.parser')
     try:
         rev_pages=int(rev_data.find_all('div',class_='_2MImiq _1Qnn1K')[0].text.split('123456')[0].split('of')[-1].strip())
     except:
@@ -70,7 +70,7 @@ def review_scrap(href):
             else:  
                 rev_page_href=rev_url+'&=30&page={}'.format(i)
                 reviews_scrap=requests.get(url=rev_page_href,headers=headers)
-                reviews_data=bs(reviews_scrap.text)
+                reviews_data=bs(reviews_scrap.text,'html.parser')
                 for i in reviews_data.find_all('div',class_='_1AtVbE col-12-12')[4:]:
                     try:
                         rating.append(int(i.text.split('READ MORE')[0][:1]))
