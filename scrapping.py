@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import streamlit as st
 import pandas as pd
-from streamlit_lottie import st_lottie
+
 
 @st.cache_data
 def scrap(product):
